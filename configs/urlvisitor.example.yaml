@@ -1,0 +1,51 @@
+# 目标 URL 列表。请只填写你拥有、管理，或已明确获得授权的地址。
+# 如果只访问一个地址，也可以使用旧字段：url: "https://example.com/"
+urls:
+  - "https://ttt.985211dz.com/assets/nav/bg/gema_jbd.webp"
+
+# 多 URL 分配策略：
+# round_robin：轮询访问，每个 URL 尽量均匀。
+# random：随机选择一个 URL。
+strategy: "round_robin"
+
+# HTTP 方法。当前工具主要面向 GET 访问测试。
+method: "GET"
+
+# 全局每秒请求数。这里的 20 表示所有 URL 合计每秒最多发起 20 次请求。
+rate_per_second: 20
+
+# 并发 worker 数量。它控制同时处理请求的上限，不代表每个 worker 每秒 20 次。
+concurrency: 10
+
+# 持续运行时间。设置为 "0s" 表示一直运行，直到手动中断。
+duration: "0s"
+
+# 单个请求超时时间。
+timeout: "10s"
+
+# 是否跟随 3xx 重定向。
+follow_redirects: true
+
+# 附加请求头。同名字段会覆盖工具内置默认值。
+headers:
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+  Accept-Language: "zh-CN,zh;q=0.9,en;q=0.8"
+
+# User-Agent 列表。每次请求会随机选择一个。
+user_agents:
+  - "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36"
+  - "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36"
+
+safety:
+  # 启动前是否要求输入 YES 确认目标已授权。
+  require_authorization_confirm: true
+
+  # 安全速率上限。rate_per_second 不能超过这个值。
+  max_rate_per_second: 20
+
+  # 目标 host 白名单。配置后，每个目标 URL 的 host 都必须在这个列表里。
+  allowed_hosts:
+    - "ttt.985211dz.com"
+
+  # 是否允许访问内网、本机和私有网段地址。只在测试授权内网服务时开启。
+  allow_private_networks: false
