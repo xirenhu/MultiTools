@@ -1,7 +1,7 @@
 # 目标 URL 列表。请只填写你拥有、管理，或已明确获得授权的地址。
 # 如果只访问一个地址，也可以使用旧字段：url: "https://example.com/"
 urls:
-  - "https://ttt.985211dz.com/assets/nav/bg/gema_jbd.webp"
+  - "https://ttt.baidu.com/assets/nav/bg/gema_jbd.webp"
 
 # 多 URL 分配策略：
 # round_robin：轮询访问，每个 URL 尽量均匀。
